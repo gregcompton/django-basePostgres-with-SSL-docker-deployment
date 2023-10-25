@@ -51,12 +51,18 @@ Note: I am using linode nameservers and deploying to a Linode server, so the pro
 
 ## Step3: Clone the repository to your server. 
 
-```git clone https://github.com/gregcompton/django-basePostgres-with-SSL-docker-deployment.git```
+`sudo git clone https://github.com/gregcompton/django-basePostgres-with-SSL-docker-deployment.git`
 
 ## Step 4: Setup the environmental variables file
-- Go to the directory containing the project files. ```cd django-basePostgres-with-SSL-docker-deployment```
-- Create a ```.env``` file by copying the sample ```cp .env.sample .env```
-- Edit the ```.env``` file and change settings per the project needs ```nano .env```
+- Go to the directory containing the project files. 
+
+		cd django-basePostgres-with-SSL-docker-deployment
+- Create a `.env` file by copying the sample 
+
+        sudo cp .env.sample .env
+- Edit the `.env` file and change settings per the project needs  
+
+        sudo nano .env
   - SECRET KEY = a jumble of characters. Use keygen for production
   - DOMAIN = yourdomain.com
   - ACME EMAIL = your email address
@@ -67,16 +73,17 @@ Note: I am using linode nameservers and deploying to a Linode server, so the pro
 ## Step 4b (optional): Put your info on the home page
 You might want to change the default home page as it has my info.
 
-    file location: ```(app/app/home/templates/home/index.html)```
+	sudo nano app/home/templates/home/index.html
 
 ## Step 5: Get the first certificate
 This process can take a while...up to a minute in my experience
-- ```docker compose -f docker-compose.deploy.yml run --rm certbot /opt/certify-init.sh```
+
+	docker compose -f docker-compose.deploy.yml run --rm certbot /opt/certify-init.sh
 
 ### STOP then START the service so that the application is served via https
-- ```docker compose -f docker-compose.deploy.yml down```
-- ```docker compose -f docker-compose.deploy.yml up```
-- OR ```docker compose -f docker-compose.deploy.yml up -d```  # Add -d to run in the background
+- `sudo docker compose -f docker-compose.deploy.yml down`
+- `sudo docker compose -f docker-compose.deploy.yml up`
+  - OR `sudo docker compose -f docker-compose.deploy.yml up -d`  # Add -d to run in the background
 
 
   *Note: I like to run services in the foreground until I am sure that they are working*
@@ -84,7 +91,7 @@ This process can take a while...up to a minute in my experience
 ## Step 5b: Create a database super user
 The first time the database service is started (**and every time it is rebuilt**) a superuser will need to be created
 
-```docker compose -f docker-compose.deploy.yml run --rm app sh -c "python manage.py createsuperuser"```
+	sudo docker compose -f docker-compose.deploy.yml run --rm app sh -c "python manage.py createsuperuser"
 
 ## Step 6: Verify everything is working properly
 - Go to https://yourdomain.com and you should see the home page.
@@ -96,9 +103,9 @@ The whole idea is to use this as a quickstart jumping off point to start develop
 So, as you edit the project, run these commands to update only the app service without bringing down the proxy or 
 database services
 
-- ```docker compose -f docker-compose.deploy.yml build app```
-- ```docker compose -f docker-compose.deploy.yml up --no-deps app```  
-- OR ```docker compose -f docker-compose.deploy.yml up --no-deps -d app```    # Add -d to run in the background
+- `sudo docker compose -f docker-compose.deploy.yml build app`
+- `sudo docker compose -f docker-compose.deploy.yml up --no-deps app` 
+  - OR `sudo docker compose -f docker-compose.deploy.yml up --no-deps -d app`    # Add -d to run in the background
 
 ## Step 8: Setup cronjob to automate certificate renewal
 *todo: see 
