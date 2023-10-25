@@ -1,0 +1,4 @@
+Using this tutorial
+https://londonappdeveloper.com/django-docker-deployment-with-https-using-letsencrypt/
+
+https://www.youtube.com/watch?v=3_ZJWlf25bY
