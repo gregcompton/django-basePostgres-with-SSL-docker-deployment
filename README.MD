@@ -1,6 +1,6 @@
 The goal of this project is to develop a comprehensive project template that includes:
-- :heavy_check_mark: Deployment to a server using Docker containers (completed)
-- :heavy_check_mark: SSL ( :heavy_check_mark: completed)
+  :heavy_check_mark: Deployment to a server using Docker containers (completed)
+  :heavy_check_mark: SSL ( :heavy_check_mark: completed)
 - [ ] Automate certificate renewal (todo: see 
 ["Handling Renewals"](https://londonappdeveloper.com/django-docker-deployment-with-https-using-letsencrypt/)
 at the bottom of the page)
