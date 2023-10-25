@@ -1,7 +1,7 @@
 The goal of this project is to develop a comprehensive project template that includes:
 - [x] Deployment to a server using Docker containers (completed) :heavy_check_mark:
 - [x] SSL (completed) :heavy_check_mark:
-- [ ] Automate certificate renewal (todo: see 
+  - [ ] Automate certificate renewal (todo: see 
 ["Handling Renewals"](https://londonappdeveloper.com/django-docker-deployment-with-https-using-letsencrypt/)
 at the bottom of the page)
 - [x] All deploy settings set via environmental variables (completed) :heavy_check_mark:
@@ -51,7 +51,7 @@ Note: I am using linode nameservers and deploying to a Linode server, so the pro
 
 ## Step3: Clone the repository to your server. 
 
-`sudo git clone https://github.com/gregcompton/django-basePostgres-with-SSL-docker-deployment.git`
+	sudo git clone https://github.com/gregcompton/django-basePostgres-with-SSL-docker-deployment.git
 
 ## Step 4: Setup the environmental variables file
 - Go to the directory containing the project files. 
