@@ -5,9 +5,27 @@ services:
     build:
       context: .
     restart: always
+    volumes:
+      - static-data:/vol/web
     environment:
       - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
       - DJANGO_ALLOWED_HOSTS=${DOMAIN}
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13-alpine
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
 
   proxy:
     build:
@@ -22,6 +40,7 @@ services:
       - certbot-web:/vol/www
       - proxy-dhparams:/vol/proxy
       - certbot-certs:/etc/letsencrypt
+      - static-data:/vol/static
     environment:
       - DOMAIN=${DOMAIN}
 
@@ -42,3 +61,5 @@ volumes:
   certbot-web:
   proxy-dhparams:
   certbot-certs:
+  postgres-data:
+  static-data:
