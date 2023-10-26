@@ -23,8 +23,8 @@ Tutorials followed toward this goal
 	- blog: https://londonappdeveloper.com/django-docker-deployment-with-https-using-letsencrypt/
 	- PyCharm project: deploy-django-with-LetsEncrypt
 	- github repo: https://github.com/gregcompton/deploy-django-with-LetsEncrypt
-- Django Celery Docker
-	- video: https://www.youtube.com/watch?v=AQYnKn-i0q8&list=PLOLrQ9Pn6cayGytG1fgUPEsUp3Onol8V7
+- Django Celery Docker Playlist by VERY ACADEMY
+	- playlist: https://youtube.com/playlist?list=PLOLrQ9Pn6cayGytG1fgUPEsUp3Onol8V7&si=AcASkX2e2hkwZJd6
 	- PyCharm project: django_celery_docker_VERYACADEMY
 	- github repo: none
 

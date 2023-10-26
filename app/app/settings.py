@@ -129,4 +129,5 @@ STATIC_ROOT = '/vol/web/static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["https://gregcompton.com", "https://www.gregcompton.com"]
+# CSRF_TRUSTED_ORIGINS = ["https://gregcompton.com", "https://www.gregcompton.com"]
+CSRF_TRUSTED_ORIGINS = [f'https://{os.environ.get("DOMAIN")}', f'https://www.{os.environ.get("DOMAIN")}']
